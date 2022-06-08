@@ -1,0 +1,37 @@
+"""
+Represents a single package published to npm along with all of its published
+versions
+"""
+type Package {
+  name: String!
+  "Most recent description of the package we can find"
+  description: String
+  "Most recent list of keywords we can find"
+  keywords: [ String ]
+  "Every user mentioned across all versions of the package"
+  collaborators: [ PackageCollaborator ]
+  "Every repository associated with the package across all versions"
+  repositories: [ PackageRepository ]
+  """
+  By default this fetches all published versions of a package. You can scope this
+  to all packages matching a semver range.
+  """
+  versions(semver: Semver): [ PackageVersion ]
+  """
+  By default this returns all tags for the package. You can scope this to a
+  specific tag.
+  """
+  tags(tag: String): [ PackageTag ]
+}
+
+type PackageTag {
+  "Label name (i.e. latest)"
+  name: String!
+  "Package version for this tag"
+  version: PackageVersion!
+}
+
+"""
+A semver string
+"""
+scalar Semver

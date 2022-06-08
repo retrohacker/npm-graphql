@@ -1,0 +1,12 @@
+"""
+Represents any supported repository type where the source files for the package
+can be found
+"""
+interface PackageRepository {
+  url: String!
+}
+
+"A generic git repository"
+type PackageGitRepository implements PackageRepository {
+  url: String!
+}

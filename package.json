@@ -1,0 +1,37 @@
+{
+  "type": "module",
+  "scripts": {
+    "onsave": "nodemon --exec npm run dev",
+    "dev": "npm run lint && npm start",
+    "start": "node index.js",
+    "lint": "semistandard --fix"
+  },
+  "nodemonConfig": {
+    "ext": "js,graphql",
+    "ignore": [
+      "state/"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "state/"
+    ]
+  },
+  "dependencies": {
+    "aigle": "^1.14.1",
+    "async": "^3.2.4",
+    "fastify": "^3.29.0",
+    "follow": "^1.1.0",
+    "function-rate-limit": "^1.1.0",
+    "globby": "^13.1.1",
+    "got": "^12.1.0",
+    "graphql": "^16.5.0",
+    "mercurius": "^9.8.0",
+    "npm-change-resolve": "^1.1.0",
+    "semver": "^7.3.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "semistandard": "^16.0.1"
+  }
+}

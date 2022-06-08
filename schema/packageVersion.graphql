@@ -1,0 +1,49 @@
+"""
+A single released version for a package
+"""
+type PackageVersion {
+  "Version string for this package (i.e. 1.0.0)"
+  version: String!
+  "Description from the original package.json"
+  description: String
+  "Where you can download this package from"
+  download: PackageDownload!
+  "User who published this version"
+  npmUser: PackageNpmUser
+  "Source code for this package if found"
+  repository: PackageRepository
+  #collaborators: [ PackageCollaborator ]"
+  #dependencies: [ Dependency ]"
+}
+
+"""
+Represents a user on npm as captured in the packument at time of package
+upload
+"""
+type PackageNpmUser {
+  "Username on npm"
+  username: String!
+  "Email address for the npm account"
+  email: String
+}
+
+"""
+Contains all the metadata necessary to download and unpack a tarball for a
+package
+"""
+type PackageDownload {
+  "Digest of the tarball to validate the download"
+  shasum: shasum
+  "A URL to download the tarball from"
+  tarball: tarballUrl!
+}
+
+"""
+A sha1 hex encoded string
+"""
+scalar shasum
+
+"""
+A URL pointing to a tarball
+"""
+scalar tarballUrl

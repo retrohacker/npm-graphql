@@ -1,0 +1,23 @@
+type Query {
+  "Fetch a package by its name"
+  getPackage(name: String): GetPackageResponse!
+}
+
+"""
+Either the package or an expected error
+"""
+union GetPackageResponse = Package | ExpectedError
+
+"""
+This is returned when an expected error is encountered.
+For example, when you query for a package that doesn't exist
+"""
+type ExpectedError {
+  code: ErrorCode!
+  message: String!
+}
+
+enum ErrorCode {
+  "Resource not found"
+  ENOENT
+}

@@ -1,0 +1,9 @@
+"""
+Represents any entity that has been involved with a project in any capacity
+"""
+type PackageCollaborator {
+  "Name, username, or handle this contributor goes by"
+  alias: String
+  "Email address for the contributor if found"
+  email: String
+}
