@@ -11,7 +11,6 @@ function getPackageTags (parent, args) {
       name: v,
       version: getPackageVersions(parent, { semver: distTags[v] })[0]
     }));
-  console.log(tags[0]);
   if (tag) {
     return tags.filter(v => v.name === tag);
   }
