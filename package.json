@@ -2,9 +2,11 @@
   "type": "module",
   "scripts": {
     "onsave": "nodemon --exec npm run dev",
-    "dev": "npm run lint && npm start",
+    "dev": "npm start",
     "start": "node index.js",
-    "lint": "semistandard --fix"
+    "lint": "npm run lint-js",
+    "lint-js": "semistandard --fix",
+    "lint-graphql": "graphql-schema-linter ./schema/**.graphql"
   },
   "nodemonConfig": {
     "ext": "js,graphql",
@@ -18,8 +20,10 @@
     ]
   },
   "dependencies": {
+    "@isaacs/ttlcache": "^1.0.4",
     "aigle": "^1.14.1",
     "async": "^3.2.4",
+    "fast-deep-equal": "^3.1.3",
     "fastify": "^3.29.0",
     "follow": "^1.1.0",
     "function-rate-limit": "^1.1.0",
@@ -28,9 +32,11 @@
     "graphql": "^16.5.0",
     "mercurius": "^9.8.0",
     "npm-change-resolve": "^1.1.0",
-    "semver": "^7.3.7"
+    "semver": "^7.3.7",
+    "single-user-cache": "^0.6.0"
   },
   "devDependencies": {
+    "graphql-schema-linter": "^3.0.1",
     "nodemon": "^2.0.16",
     "semistandard": "^16.0.1"
   }

@@ -1,0 +1,6 @@
+type PackageTag {
+  "Label name (i.e. latest)"
+  name: String!
+  "Package version for this tag"
+  version: PackageVersion!
+}

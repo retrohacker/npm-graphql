@@ -5,5 +5,5 @@ type PackageCollaborator {
   "Name, username, or handle this contributor goes by"
   alias: String
   "Email address for the contributor if found"
-  email: String
+  emails: [String]
 }

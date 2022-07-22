@@ -1,0 +1,4 @@
+"""
+A semver string
+"""
+scalar Semver

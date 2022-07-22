@@ -1,6 +1,6 @@
 type Query {
   "Fetch a package by its name"
-  getPackage(name: String): GetPackageResponse!
+  getPackage(name: String): Package!
 }
 
 """

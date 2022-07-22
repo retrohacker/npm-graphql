@@ -4,6 +4,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { globby } from 'globby';
 import resolvers from './resolvers/index.js';
+import getContext from './context.js';
 
 const app = Fastify();
 
@@ -13,12 +14,17 @@ async function loadSchema () {
   return await Promise.all(loadSchema);
 }
 
+function context() {
+  return getContext()
+}
+
 async function main () {
   const schema = await loadSchema();
   app.register(mercurius, {
-    schema, resolvers, graphiql: true
+    schema, resolvers, context, graphiql: true,
   });
-  app.listen(3000);
+  await app.listen(3000);
+  console.log('Listening on port 3000');
 }
 
 main();
